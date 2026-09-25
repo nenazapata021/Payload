@@ -1,12 +1,12 @@
 'use client'
 
-import type { PayloadAdminBarProps, PayloadMeUser } from '@payloadcms/admin-bar'
+import type { PayloadMeUser } from '@payloadcms/admin-bar'
 
 import { cn } from '@/utilities/ui'
 import { useSelectedLayoutSegments } from 'next/navigation'
-import { PayloadAdminBar } from '@payloadcms/admin-bar'
-import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
+import Link from 'next/link'
 
 import './index.scss'
 
@@ -32,7 +32,7 @@ const collectionLabels = {
 const Title: React.FC = () => <span>Dashboard</span>
 
 export const AdminBar: React.FC<{
-  adminBarProps?: PayloadAdminBarProps
+  adminBarProps?: unknown
 }> = (props) => {
   const { adminBarProps } = props || {}
   const segments = useSelectedLayoutSegments()
@@ -46,6 +46,12 @@ export const AdminBar: React.FC<{
     setShow(Boolean(user?.id))
   }, [])
 
+  const handleNewPageClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    router.push('/admin/collections/pages')
+    router.refresh()
+  }
+
   return (
     <div
       className={cn(baseClass, 'py-2 bg-black text-white', {
@@ -53,36 +59,32 @@ export const AdminBar: React.FC<{
         hidden: !show,
       })}
     >
-      <div className="container">
-        <PayloadAdminBar
-          {...adminBarProps}
-          className="py-2 text-white"
-          classNames={{
-            controls: 'font-medium text-white',
-            logo: 'text-white',
-            user: 'text-white',
-          }}
-          cmsURL={getClientSideURL()}
-          collectionSlug={collection}
-          collectionLabels={{
-            plural: collectionLabels[collection]?.plural || 'Pages',
-            singular: collectionLabels[collection]?.singular || 'Page',
-          }}
-          logo={<Title />}
-          onAuthChange={onAuthChange}
-          onPreviewExit={() => {
-            fetch('/next/exit-preview').then(() => {
-              router.push('/')
-              router.refresh()
-            })
-          }}
-          style={{
-            backgroundColor: 'transparent',
-            padding: 0,
-            position: 'relative',
-            zIndex: 'unset',
-          }}
-        />
+      <div className="container flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Title />
+          
+          {collection === 'pages' && (
+            <Link
+              href="/admin/collections/pages"
+              onClick={handleNewPageClick}
+              className="font-medium text-white hover:text-gray-300 px-3 py-1.5 rounded bg-gray-800 hover:bg-gray-700 transition-colors whitespace-nowrap"
+            >
+              New Page
+            </Link>
+          )}
+        </div>
+
+        <div className="flex items-center gap-4">
+          <a
+            suppressHydrationWarning
+            href={getClientSideURL()}
+            className="font-medium text-white hover:text-gray-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Site
+          </a>
+        </div>
       </div>
     </div>
   )

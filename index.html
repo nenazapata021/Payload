@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tienda de camisetas exclusivas - Descubre nuestra línea de camisetas diseñadas para tus momentos parchados">
+  <title>Pijas Store - Camisetas Exclusivas</title>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            border: 'hsl(var(--border))',
+            input: 'hsl(var(--input))',
+            ring: 'hsl(var(--ring))',
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: {
+              DEFAULT: 'hsl(var(--primary))',
+              foreground: 'hsl(var(--primary-foreground))',
+            },
+            secondary: {
+              DEFAULT: 'hsl(var(--secondary))',
+              foreground: 'hsl(var(--secondary-foreground))',
+            },
+            destructive: {
+              DEFAULT: 'hsl(var(--destructive))',
+              foreground: 'hsl(var(--destructive-foreground))',
+            },
+            muted: {
+              DEFAULT: 'hsl(var(--muted))',
+              foreground: 'hsl(var(--muted-foreground))',
+            },
+            accent: {
+              DEFAULT: 'hsl(var(--accent))',
+              foreground: 'hsl(var(--accent-foreground))',
+            },
+            popover: {
+              DEFAULT: 'hsl(var(--popover))',
+              foreground: 'hsl(var(--popover-foreground))',
+            },
+            card: {
+              DEFAULT: 'hsl(var(--card))',
+              foreground: 'hsl(var(--card-foreground))',
+            },
+            success: 'hsl(var(--success))',
+            warning: 'hsl(var(--warning))',
+            error: 'hsl(var(--error))',
+          },
+          borderRadius: {
+            lg: 'var(--radius)',
+            md: 'calc(var(--radius) - 2px)',
+            sm: 'calc(var(--radius) - 4px)',
+          },
+          fontFamily: {
+            sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+            mono: ['var(--font-mono)', 'monospace'],
+          },
+          screens: {
+            sm: '40rem',
+            md: '48rem',
+            lg: '64rem',
+            xl: '80rem',
+            '2xl': '86rem',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    :root {
+      --background: oklch(100% 0 0deg);
+      --foreground: oklch(14.5% 0 0deg);
+      --card: oklch(96.5% 0.005 265deg);
+      --card-foreground: oklch(14.5% 0 0deg);
+      --popover: oklch(100% 0 0deg);
+      --popover-foreground: oklch(14.5% 0 0deg);
+      --primary: oklch(20.5% 0 0deg);
+      --primary-foreground: oklch(98.5% 0 0deg);
+      --secondary: oklch(97% 0 0deg);
+      --secondary-foreground: oklch(20.5% 0 0deg);
+      --muted: oklch(97% 0 0deg);
+      --muted-foreground: oklch(55.6% 0 0deg);
+      --accent: oklch(97% 0 0deg);
+      --accent-foreground: oklch(20.5% 0 0deg);
+      --destructive: oklch(57.7% 0.245 27.325deg);
+      --destructive-foreground: oklch(57.7% 0.245 27.325deg);
+      --border: oklch(92.2% 0 0deg);
+      --input: oklch(92.2% 0 0deg);
+      --ring: oklch(70.8% 0 0deg);
+      --chart-1: oklch(64.6% 0.222 41.116deg);
+      --chart-2: oklch(60% 0.118 184.704deg);
+      --chart-3: oklch(39.8% 0.07 227.392deg);
+      --chart-4: oklch(82.8% 0.189 84.429deg);
+      --chart-5: oklch(76.9% 0.188 70.08deg);
+      --radius: 0.625rem;
+      --sidebar: oklch(98.5% 0 0deg);
+      --sidebar-foreground: oklch(14.5% 0 0deg);
+      --sidebar-primary: oklch(20.5% 0 0deg);
+      --sidebar-primary-foreground: oklch(98.5% 0 0deg);
+      --sidebar-accent: oklch(97% 0 0deg);
+      --sidebar-accent-foreground: oklch(98.5% 0 0deg);
+      --sidebar-border: oklch(92.2% 0 0deg);
+      --sidebar-ring: oklch(70.8% 0 0deg);
+      --success: oklch(78% 0.08 200deg);
+      --warning: oklch(89% 0.1 75deg);
+      --error: oklch(75% 0.15 25deg);
+      --font-sans: 'Geist', 'system-ui', 'sans-serif';
+      --font-mono: 'Geist Mono', 'monospace';
+    }
+
+    [data-theme='dark'] {
+      --background: oklch(14.5% 0 0deg);
+      --foreground: oklch(98.5% 0 0deg);
+      --card: oklch(17% 0 0deg);
+      --card-foreground: oklch(98.5% 0 0deg);
+      --popover: oklch(14.5% 0 0deg);
+      --popover-foreground: oklch(98.5% 0 0deg);
+      --primary: oklch(98.5% 0 0deg);
+      --primary-foreground: oklch(20.5% 0 0deg);
+      --secondary: oklch(26.9% 0 0deg);
+      --secondary-foreground: oklch(98.5% 0 0deg);
+      --muted: oklch(26.9% 0 0deg);
+      --muted-foreground: oklch(70.8% 0 0deg);
+      --accent: oklch(26.9% 0 0deg);
+      --accent-foreground: oklch(98.5% 0 0deg);
+      --destructive: oklch(39.6% 0.141 25.723deg);
+      --destructive-foreground: oklch(63.7% 0.237 25.331deg);
+      --border: oklch(26.9% 0 0deg);
+      --input: oklch(26.9% 0 0deg);
+      --ring: oklch(43.9% 0 0deg);
+      --chart-1: oklch(48.8% 0.243 264.376deg);
+      --chart-2: oklch(69.6% 0.17 162.48deg);
+      --chart-3: oklch(76.9% 0.188 70.08deg);
+      --chart-4: oklch(62.7% 0.265 303.9deg);
+      --chart-5: oklch(64.5% 0.246 16.439deg);
+      --sidebar: oklch(20.5% 0 0deg);
+      --sidebar-foreground: oklch(98.5% 0 0deg);
+      --sidebar-primary: oklch(48.8% 0.243 264.376deg);
+      --sidebar-primary-foreground: oklch(98.5% 0 0deg);
+      --sidebar-accent: oklch(26.9% 0 0deg);
+      --sidebar-accent-foreground: oklch(98.5% 0 0deg);
+      --sidebar-border: oklch(26.9% 0 0deg);
+      --sidebar-ring: oklch(43.9% 0 0deg);
+      --success: oklch(28% 0.1 200deg);
+      --warning: oklch(35% 0.08 70deg);
+      --error: oklch(45% 0.1 25deg);
+    }
+
+    * {
+      border-color: hsl(var(--border));
+    }
+
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+
+    @media (min-width: 40rem) {
+      .container { max-width: 40rem; }
+    }
+    @media (min-width: 48rem) {
+      .container { max-width: 48rem; padding-inline: 2rem; }
+    }
+    @media (min-width: 64rem) {
+      .container { max-width: 64rem; }
+    }
+    @media (min-width: 80rem) {
+      .container { max-width: 80rem; }
+    }
+    @media (min-width: 86rem) {
+      .container { max-width: 86rem; }
+    }
+
+    html {
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    html[data-theme='dark'],
+    html[data-theme='light'] {
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen flex flex-col">
+  <header class="relative z-20" data-theme="">
+    <div class="container py-8 flex justify-between items-center">
+      <a href="/" aria-label="Pijas Store - Inicio">
+        <img
+          alt="Pijas Store Logo"
+          width="193"
+          height="34"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="max-w-[9.375rem] w-full h-[34px] invert dark:invert-0"
+          src="https://raw.githubusercontent.com/payloadcms/payload/3.x/packages/ui/src/assets/payload-logo-light.svg"
+        />
+      </a>
+      <nav class="flex gap-3 items-center" aria-label="Navegación principal">
+        <a href="/" class="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">Inicio</a>
+        <a href="/posts" class="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">Blog</a>
+        <a href="/search" class="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">Buscar</a>
+        <a href="/admin" class="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">Admin</a>
+        <button
+          id="search-toggle"
+          class="p-2 rounded-lg hover:bg-muted transition-colors"
+          aria-label="Buscar"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-1 min-h-screen bg-gray-50 dark:bg-background text-gray-800 dark:text-gray-100">
+    <section class="relative bg-pink-100 dark:bg-pink-900/30 py-20 px-6 text-center rounded-b-3xl shadow-sm mb-12 animate-fade-in">
+      <div class="max-w-3xl mx-auto">
+        <span class="bg-pink-200 dark:bg-pink-800 text-pink-800 dark:text-pink-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider animate-fade-in delay-1">
+          Nueva Colección
+        </span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-100 mt-4 mb-6 animate-fade-in delay-2">
+          Luce bien con nuestras camisetas
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 animate-fade-in delay-3">
+          Descubre nuestra exclusiva línea de camisetas diseñadas para tus momentos parchados.
+        </p>
+        <div class="flex justify-center gap-4 animate-fade-in delay-4">
+          <a
+            href="#catalogo"
+            class="bg-pink-600 hover:bg-pink-700 text-white font-medium px-6 py-3 rounded-full shadow-md transition-all"
+          >
+            Ver Catálogo
+          </a>
+          <a
+            href="/admin"
+            class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 font-medium px-6 py-3 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 transition-all"
+          >
+            Panel Admin
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="max-w-7xl mx-auto px-6 pb-20 animate-fade-in delay-2">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Pijas Destacadas</h2>
+        <span class="text-sm text-pink-600 dark:text-pink-400 font-semibold cursor-pointer hover:underline">Ver todo →</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <article class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow animate-fade-in delay-1">
+          <div class="h-64 bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+            <img
+              src="/camisetas/camiseta-1.jpg"
+              alt="Camiseta Goku"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg text-gray-900 dark:text-gray-100 mb-1">Camiseta Goku</h3>
+            <p class="text-pink-600 dark:text-pink-400 font-bold text-xl mb-4">$45.00</p>
+            <button class="w-full bg-gray-900 dark:bg-gray-900 hover:bg-pink-600 text-white py-2.5 rounded-xl font-medium transition-colors">
+              Añadir al Carrito
+            </button>
+          </div>
+        </article>
+
+        <article class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow animate-fade-in delay-2">
+          <div class="h-64 bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+            <img
+              src="/camisetas/camiseta-2.jpg"
+              alt="Camiseta De Los Equipos"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg text-gray-900 dark:text-gray-100 mb-1">Camiseta De Los Equipos</h3>
+            <p class="text-pink-600 dark:text-pink-400 font-bold text-xl mb-4">$35.00</p>
+            <button class="w-full bg-gray-900 dark:bg-gray-900 hover:bg-pink-600 text-white py-2.5 rounded-xl font-medium transition-colors">
+              Añadir al Carrito
+            </button>
+          </div>
+        </article>
+
+        <article class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow animate-fade-in delay-3">
+          <div class="h-64 bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+            <img
+              src="/camisetas/camiseta-3.jpg"
+              alt="Camiseta Super Heroes"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg text-gray-900 dark:text-gray-100 mb-1">Camiseta Super Heroes</h3>
+            <p class="text-pink-600 dark:text-pink-400 font-bold text-xl mb-4">$55.00</p>
+            <button class="w-full bg-gray-900 dark:bg-gray-900 hover:bg-pink-600 text-white py-2.5 rounded-xl font-medium transition-colors">
+              Añadir al Carrito
+            </button>
+          </div>
+        </article>
+
+        <a
+          href="/pijama-1"
+          class="col-span-full bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow p-8 text-center animate-fade-in delay-4"
+        >
+          <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-100 mb-2">Colección Pijama Especial</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Ver más detalles sobre esta colección exclusiva</p>
+          <span class="text-pink-600 dark:text-pink-400 font-medium hover:underline">Ir a la página →</span>
+        </a>
+      </div>
+    </main>
+
+  <footer class="mt-auto border-t border-border bg-black dark:bg-card text-white">
+    <div class="container py-8 gap-8 flex flex-col md:flex-row md:justify-between">
+      <a class="flex items-center" href="/" aria-label="Pijas Store - Inicio">
+        <img
+          alt="Pijas Store Logo"
+          width="193"
+          height="34"
+          loading="lazy"
+          decoding="async"
+          class="max-w-[9.375rem] w-full h-[34px]"
+          src="https://raw.githubusercontent.com/payloadcms/payload/3.x/packages/ui/src/assets/payload-logo-light.svg"
+        />
+      </a>
+
+      <div class="flex flex-col-reverse items-start md:flex-row gap-4 md:items-center w-full md:w-auto">
+        <div class="theme-selector" id="theme-selector">
+          <label for="theme-select" class="sr-only">Seleccionar tema</label>
+          <select
+            id="theme-select"
+            class="w-auto bg-transparent gap-2 pl-0 md:pl-3 border-none text-white focus:outline-none focus:ring-2 focus:ring-primary rounded"
+            aria-label="Seleccionar tema"
+          >
+            <option value="auto">Auto</option>
+            <option value="light">Claro</option>
+            <option value="dark">Oscuro</option>
+          </select>
+        </div>
+        <nav class="flex flex-col md:flex-row gap-4 w-full md:w-auto justify-center md:justify-end" aria-label="Navegación del pie de página">
+          <a href="/" class="text-white hover:text-pink-400 transition-colors">Inicio</a>
+          <a href="/posts" class="text-white hover:text-pink-400 transition-colors">Blog</a>
+          <a href="/search" class="text-white hover:text-pink-400 transition-colors">Buscar</a>
+          <a href="/admin" class="text-white hover:text-pink-400 transition-colors">Admin</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const THEME_KEY = 'payload-theme-preference';
+      const html = document.documentElement;
+      const header = document.querySelector('header');
+      const themeSelect = document.getElementById('theme-select');
+
+      function getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      function applyTheme(theme) {
+        if (theme === 'auto') {
+          const systemTheme = getSystemTheme();
+          html.setAttribute('data-theme', systemTheme);
+          if (header) header.setAttribute('data-theme', systemTheme);
+        } else {
+          html.setAttribute('data-theme', theme);
+          if (header) header.setAttribute('data-theme', theme);
+        }
+      }
+
+      function initTheme() {
+        const saved = localStorage.getItem(THEME_KEY) || 'auto';
+        themeSelect.value = saved;
+        applyTheme(saved);
+      }
+
+      themeSelect.addEventListener('change', function(e) {
+        const theme = e.target.value;
+        localStorage.setItem(THEME_KEY, theme);
+        applyTheme(theme);
+      });
+
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+        if (localStorage.getItem(THEME_KEY) === 'auto' || !localStorage.getItem(THEME_KEY)) {
+          applyTheme('auto');
+        }
+      });
+
+      initTheme();
+    })();
+  </script>
+</body>
+</html>
